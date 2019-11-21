@@ -19,6 +19,17 @@ def markers():
         r = requests.get(url="http://"+str(ip)+"/")
         return jsonify(r.json())
 
+@app.route('/posts',methods=['PUT'])
+def alterMarkers():
+        content = request.get_json()
+        r = requests.put(url="http://"+str(ip)+"/posts",json=content)
+        return jsonify(r.json())
+
+@app.route('/posts',methods=['DELETE'])
+def delMarkers():
+        content = request.get_json()
+        r = requests.delete(url="http://"+str(ip)+"/posts",json=content)
+        return jsonify(r.json())
 
 @app.route('/healthcheck',methods=['GET'])
 def healthcheck():
