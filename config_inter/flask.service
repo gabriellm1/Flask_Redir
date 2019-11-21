@@ -1,0 +1,11 @@
+[Unit]
+Description=Flask web server
+[Install]
+WantedBy=multi-user.target
+[Service]
+User=ubuntu
+PermissionsStartOnly=true
+ExecStart=/usr/bin/python3  /home/ubuntu/Flask_Redir/flask_redir.py
+TimeoutSec=600
+Restart=on-failure
+RuntimeDirectoryMode=755
