@@ -17,7 +17,10 @@ def createMarkers():
 @app.route('/',methods=['GET'])
 def markers():
         r = requests.get(url="http://"+str(ip)+"/")
-        return jsonify(r.json()[0])
+        if len(r.json()) == 0:
+                return jsonify({})
+        else:
+                return jsonify(r.json()[0])
 
 
 @app.route('/healthcheck',methods=['GET'])
