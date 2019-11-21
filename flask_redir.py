@@ -32,7 +32,7 @@ def markers():
         if len(r.json()) == 0:
                 return jsonify({})
         else:
-                return jsonify(r.json()[0])
+                return jsonify(r.json())
 
 
 @app.route('/healthcheck',methods=['GET'])
